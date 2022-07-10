@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/yata/static/css/main.667a3931.css",
+    "main.js": "/yata/static/js/main.b4fa05e7.js",
+    "index.html": "/yata/index.html",
+    "main.667a3931.css.map": "/yata/static/css/main.667a3931.css.map",
+    "main.b4fa05e7.js.map": "/yata/static/js/main.b4fa05e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.667a3931.css",
+    "static/js/main.b4fa05e7.js"
+  ]
+}
