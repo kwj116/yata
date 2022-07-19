@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/yata/static/css/main.7d9f8ef9.css",
-    "main.js": "/yata/static/js/main.60f9636f.js",
+    "main.js": "/yata/static/js/main.d3934892.js",
     "static/media/bg2.jpg": "/yata/static/media/bg2.92405747f873b7b3807e.jpg",
     "static/media/yata.png": "/yata/static/media/yata.7e70fb3adaaafd006c66.png",
     "index.html": "/yata/index.html",
     "main.7d9f8ef9.css.map": "/yata/static/css/main.7d9f8ef9.css.map",
-    "main.60f9636f.js.map": "/yata/static/js/main.60f9636f.js.map"
+    "main.d3934892.js.map": "/yata/static/js/main.d3934892.js.map"
   },
   "entrypoints": [
     "static/css/main.7d9f8ef9.css",
-    "static/js/main.60f9636f.js"
+    "static/js/main.d3934892.js"
   ]
 }
