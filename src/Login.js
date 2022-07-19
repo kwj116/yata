@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import Home from "./Home";
 import styled from "styled-components";
+import bgImg from "./img/bg2.jpg";
 
 const Div = styled.div`
   display: flex;
@@ -12,10 +13,17 @@ const Div = styled.div`
   justify-content: space-around;
 `;
 
-const Header = styled.div`
-  width: 100%;
-  background-color: #6edcdc;
-  height: 10vh;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+`;
+
+const H1 = styled.h1`
+  background: linear-gradient(#1e90ff, #00cdff);
+  color: transparent;
+  -webkit-background-clip: text;
 `;
 
 function Login() {
@@ -30,12 +38,12 @@ function Login() {
     console.log(value);
     alert("여기까지");
   };
+
   return (
-    <div className={styles.div}>
-      <Header></Header>
+    <Container>
       <Div height="10vh"></Div>
-      <h1>로그인</h1>
-      <form onSubmit={onSubmit} className={styles.form}>
+      <H1>로그인</H1>
+      <form onSubmit={onSubmit}>
         <input
           title="아이디를 입력하세요."
           className={styles.input}
@@ -50,9 +58,9 @@ function Login() {
           type="text"
           placeholder="비밀번호 입력"
         ></input>
-        <button className={styles.button}>로그인</button>
+        <button className={styles.button}>확인</button>
       </form>
-    </div>
+    </Container>
   );
 }
 

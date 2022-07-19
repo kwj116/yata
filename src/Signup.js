@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import Home from "./Home";
 import styled from "styled-components";
+import bgImg from "./img/bg2.jpg";
 
 const Div = styled.div`
   display: flex;
@@ -12,12 +13,18 @@ const Div = styled.div`
   justify-content: space-around;
 `;
 
-const Header = styled.div`
-  width: 100%;
-  background-color: #6edcdc;
-  height: 10vh;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 `;
 
+const H1 = styled.h1`
+  background: linear-gradient(#1e90ff, #00cdff);
+  color: transparent;
+  -webkit-background-clip: text;
+`;
 function Signup() {
   const [value, setValue] = useState("");
 
@@ -31,10 +38,9 @@ function Signup() {
     alert("여기까지");
   };
   return (
-    <div className={styles.div}>
-      <Header></Header>
+    <Container>
       <Div height="10vh"></Div>
-      <h1>회원가입</h1>
+      <H1>회원가입</H1>
       <form onSubmit={onSubmit} className={styles.SignupForm}>
         아이디
         <input
@@ -51,9 +57,9 @@ function Signup() {
           onChange={onChange}
           type="text"
         ></input>
-        <button className={styles.button}>회원가입</button>
+        <button className={styles.button}>확인</button>
       </form>
-    </div>
+    </Container>
   );
 }
 
