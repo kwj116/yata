@@ -1,9 +1,7 @@
-import { useState } from "react";
 import styles from "./styles.module.css";
-import Home from "./Home";
 import styled from "styled-components";
-import bgImg from "./img/bg2.jpg";
-
+import { useForm } from "react-hook-form";
+import "./reset.css";
 const Div = styled.div`
   display: flex;
   height: ${(props) => props.height};
@@ -21,43 +19,61 @@ const Container = styled.div`
 `;
 
 const H1 = styled.h1`
-  background: linear-gradient(#1e90ff, #00cdff);
+  font-weight: 800;
+  font-size: 28px;
+  background: linear-gradient(white, gray);
   color: transparent;
   -webkit-background-clip: text;
+  margin-bottom: 10vh;
 `;
-
+const Con = styled.div`
+  margin-bottom: ${(props) => props.marginBottom};
+`;
 function Login() {
-  const [value, setValue] = useState("");
-
-  const onChange = (event) => {
-    const value = event.target.value;
-    setValue(value);
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+  const onValid = (data) => {
+    console.log(data);
   };
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(value);
-    alert("여기까지");
-  };
-
+  console.log(errors);
   return (
     <Container>
       <Div height="10vh"></Div>
       <H1>로그인</H1>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit(onValid)} className={styles.Form}>
         <input
-          title="아이디를 입력하세요."
+          {...register("id", {
+            required: "입력하세요",
+            minLength: {
+              value: 10,
+              message: "이메일 형식으로 입력하시기 바랍니다.",
+            },
+
+            pattern: {
+              value: /^[A-Za-z0-9._%+-]+@+[A-Za-z]+.+[A-Za-z]$/,
+              message: "이메일 형식으로 입력하시기 바랍니다.",
+            },
+          })}
           className={styles.input}
-          onChange={onChange}
           type="text"
           placeholder="아이디 입력"
-        ></input>
+        />
+        <Con marginBottom="10px" />
+        {errors?.id?.message}
         <input
-          title="비밀번호를 입력하세요."
+          {...register("password", {
+            required: "입력하세요",
+            minLength: { value: 10, message: "너무 짧습니다.(10자 이상)" },
+          })}
           className={styles.input}
-          onChange={onChange}
           type="text"
           placeholder="비밀번호 입력"
-        ></input>
+        />
+        <Con marginBottom="10px" />
+        <span>{errors?.password?.message}</span>
         <button className={styles.button}>확인</button>
       </form>
     </Container>
